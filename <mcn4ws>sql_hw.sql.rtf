@@ -1,77 +1,70 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2639
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww12480\viewh8720\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+-- Neha Dacherla HW 1;
+-- World Database Questions;
+Use world;
+SELECT Name FROM country WHERE Continent="South America";
+SELECT Population FROM country WHERE Name="Germany";
+SELECT Name FROM city WHERE CountryCode="JPN";
 
-\f0\fs24 \cf0 -- Neha Dacherla HW 1;\
--- World Database Questions;\
-Use world;\
-SELECT Name FROM country WHERE Continent="South America";\
-SELECT Population FROM country WHERE Name="Germany";\
-SELECT Name FROM city WHERE CountryCode="JPN";\
-\
-SELECT Name FROM country WHERE Continent="Africa" ORDER BY Population DESC LIMIT 3; \
-SELECT Name,LifeExpectancy FROM country WHERE Population BETWEEN 1000000 AND 5000000;\
-SELECT Name FROM country WHERE Code IN(\
-	SELECT CountryCode FROM countrylanguage WHERE Language="French");\
-\
--- Chinook Questions\
-Use Chinook_AutoIncrement; \
-SELECT Title FROM Album WHERE ArtistId="1";\
-SELECT FirstName,LastName,Email FROM Customer WHERE Country="Brazil";\
-SELECT Name FROM Playlist;\
-\
-SELECT COUNT(*) AS TrackCount FROM Track WHERE GenreId="1";\
-SELECT FirstName,LastName FROM Employee WHERE ReportsTo="2";\
-SELECT CustomerId, SUM(Total) FROM Invoice GROUP BY CustomerId;\
-\
--- Create Database\
-CREATE TABLE Candles(\
-    ProductName VARCHAR(50),\
-    ProductScent VARCHAR(50),\
-    Inventory INT\
-);\
-\
-INSERT INTO `Candles` (`ProductName`, `ProductScent`, `ProductInventory`) VALUES ('Candle 1', 'Vanilla', '35');\
-INSERT INTO `Candles` (`ProductName`, `ProductScent`, `ProductInventory`) VALUES ('Candle 2', 'Peppermint', '40');\
-INSERT INTO `Candles` (`ProductName`, `ProductScent`, `ProductInventory`) VALUES ('Candle 3', 'Butterscotch', '20');\
-INSERT INTO `Candles` (`ProductName`, `ProductScent`, `ProductInventory`) VALUES ('Candle 4', 'Eucalyptus Mint', '25');\
-INSERT INTO `Candles` (`ProductName`, `ProductScent`, `ProductInventory`) VALUES ('Candle 5', 'Caramel', '30');\
-INSERT INTO `Candles` (`ProductName`, `ProductScent`, `ProductInventory`) VALUES ('Candle 6', 'Pumpkin Spice', '10');\
-\
-CREATE TABLE Employees(\
-    FirstName VARCHAR(50),\
-    LastName VARCHAR(50),\
-    Title VARCHAR(50),\
-    Tenure INT\
-);\
-\
-INSERT INTO `Employees` (`FirstName`, `LastName`, `Title`, `Tenure`) VALUES ('Narmada', 'Dacherla', 'Sales Manager', '10');\
-INSERT INTO `Employees` (`FirstName`, `LastName`, `Title`, `Tenure`) VALUES ('Shiva', 'Dacherla', 'Data Scientist', '5');\
-INSERT INTO `Employees` (`FirstName`, `LastName`, `Title`, `Tenure`) VALUES ('Nora', 'Smith', 'Marketing Manager', '2');\
-INSERT INTO `Employees` (`FirstName`, `LastName`, `Title`, `Tenure`) VALUES ('Jack', 'Smith', 'Operations Manager', '7');\
-INSERT INTO `Employees` (`FirstName`, `LastName`, `Title`, `Tenure`) VALUES ('Daniel', 'Smith', 'Finance Manager', '13');\
-\
-CREATE TABLE Customers(\
-    FirstName VARCHAR(50),\
-    LastName VARCHAR(50),\
-    Type TEXT\
-);\
-\
-INSERT INTO `Customers` (`FirstName`, `LastName`, `Type`) VALUES ('Neha', 'Dacherla', 'Existing');\
-INSERT INTO `Customers` (`FirstName`, `LastName`, `Type`) VALUES ('Saankya', 'Gundlapalli', 'Existing');\
-INSERT INTO `Customers` (`FirstName`, `LastName`, `Type`) VALUES ('Sruthi', 'Dacherla', 'Existing');\
-INSERT INTO `Customers` (`FirstName`, `LastName`, `Type`) VALUES ('Ishika', 'Gobin', 'New');\
-INSERT INTO `Customers` (`FirstName`, `LastName`, `Type`) VALUES ('Sonia', 'Naik', 'New');\
-INSERT INTO `Customers` (`FirstName`, `LastName`, `Type`) VALUES ('Mihika', 'Rao', 'New');\
-\
--- Rank the employees in order from least to most tenured\
-SELECT FirstName,LastName FROM Employees ORDER BY Tenure ASC;\
-\
--- Return the candle with the most inventory \
-SELECT ProductName FROM Candles ORDER BY ProductInventory DESC LIMIT 1;\
-\
--- Return the new customers that the company has\
-SELECT FirstName,LastName FROM Customers WHERE Type="New";}
+SELECT Name FROM country WHERE Continent="Africa" ORDER BY Population DESC LIMIT 3; 
+SELECT Name,LifeExpectancy FROM country WHERE Population BETWEEN 1000000 AND 5000000;
+SELECT Name FROM country WHERE Code IN(
+	SELECT CountryCode FROM countrylanguage WHERE Language="French");
+
+-- Chinook Questions
+Use Chinook_AutoIncrement; 
+SELECT Title FROM Album WHERE ArtistId="1";
+SELECT FirstName,LastName,Email FROM Customer WHERE Country="Brazil";
+SELECT Name FROM Playlist;
+
+SELECT COUNT(*) AS TrackCount FROM Track WHERE GenreId="1";
+SELECT FirstName,LastName FROM Employee WHERE ReportsTo="2";
+SELECT CustomerId, SUM(Total) FROM Invoice GROUP BY CustomerId;
+
+-- Create Database
+CREATE TABLE Candles(
+    ProductName VARCHAR(50),
+    ProductScent VARCHAR(50),
+    Inventory INT
+);
+
+INSERT INTO `Candles` (`ProductName`, `ProductScent`, `ProductInventory`) VALUES ('Candle 1', 'Vanilla', '35');
+INSERT INTO `Candles` (`ProductName`, `ProductScent`, `ProductInventory`) VALUES ('Candle 2', 'Peppermint', '40');
+INSERT INTO `Candles` (`ProductName`, `ProductScent`, `ProductInventory`) VALUES ('Candle 3', 'Butterscotch', '20');
+INSERT INTO `Candles` (`ProductName`, `ProductScent`, `ProductInventory`) VALUES ('Candle 4', 'Eucalyptus Mint', '25');
+INSERT INTO `Candles` (`ProductName`, `ProductScent`, `ProductInventory`) VALUES ('Candle 5', 'Caramel', '30');
+INSERT INTO `Candles` (`ProductName`, `ProductScent`, `ProductInventory`) VALUES ('Candle 6', 'Pumpkin Spice', '10');
+
+CREATE TABLE Employees(
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Title VARCHAR(50),
+    Tenure INT
+);
+
+INSERT INTO `Employees` (`FirstName`, `LastName`, `Title`, `Tenure`) VALUES ('Narmada', 'Dacherla', 'Sales Manager', '10');
+INSERT INTO `Employees` (`FirstName`, `LastName`, `Title`, `Tenure`) VALUES ('Shiva', 'Dacherla', 'Data Scientist', '5');
+INSERT INTO `Employees` (`FirstName`, `LastName`, `Title`, `Tenure`) VALUES ('Nora', 'Smith', 'Marketing Manager', '2');
+INSERT INTO `Employees` (`FirstName`, `LastName`, `Title`, `Tenure`) VALUES ('Jack', 'Smith', 'Operations Manager', '7');
+INSERT INTO `Employees` (`FirstName`, `LastName`, `Title`, `Tenure`) VALUES ('Daniel', 'Smith', 'Finance Manager', '13');
+
+CREATE TABLE Customers(
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Type TEXT
+);
+
+INSERT INTO `Customers` (`FirstName`, `LastName`, `Type`) VALUES ('Neha', 'Dacherla', 'Existing');
+INSERT INTO `Customers` (`FirstName`, `LastName`, `Type`) VALUES ('Saankya', 'Gundlapalli', 'Existing');
+INSERT INTO `Customers` (`FirstName`, `LastName`, `Type`) VALUES ('Sruthi', 'Dacherla', 'Existing');
+INSERT INTO `Customers` (`FirstName`, `LastName`, `Type`) VALUES ('Ishika', 'Gobin', 'New');
+INSERT INTO `Customers` (`FirstName`, `LastName`, `Type`) VALUES ('Sonia', 'Naik', 'New');
+INSERT INTO `Customers` (`FirstName`, `LastName`, `Type`) VALUES ('Mihika', 'Rao', 'New');
+
+-- Rank the employees in order from least to most tenured
+SELECT FirstName,LastName FROM Employees ORDER BY Tenure ASC;
+
+-- Return the candle with the most inventory 
+SELECT ProductName FROM Candles ORDER BY ProductInventory DESC LIMIT 1;
+
+-- Return the new customers that the company has
+SELECT FirstName,LastName FROM Customers WHERE Type="New";
